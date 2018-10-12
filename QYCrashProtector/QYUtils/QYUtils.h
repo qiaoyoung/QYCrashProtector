@@ -1,0 +1,16 @@
+//
+//  QYUtils.h
+//  Demo
+//
+//  Created by Joeyoung on 2018/10/9.
+//  Copyright © 2018年 Joeyoung. All rights reserved.
+//
+
+#ifndef QYUtils_h
+#define QYUtils_h
+
+#import "QYMethodSwizzling.h"
+#import "YYWeakProxy.h"
+#import "QYErrorLog.h"
+
+#endif /* QYUtils_h */
