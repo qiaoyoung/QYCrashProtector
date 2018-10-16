@@ -6,7 +6,7 @@ App 因服务端数据返回异常、未实现方法等问题造成的crash比�
 
 基于以上情形，本人的QYCrashProtector（崩溃保护工具）就诞生了！！！ 开源，但有不完善的地方，希望各位小伙伴看到后积极提出宝贵意见，让我们共同努力，对crash say goodbye ~
 
-在此感谢@ibireme！！！ 工具中的timer保护类，引用了 [YYWeakProxy](https://github.com/ibireme/YYKit/tree/master/YYKit/Utility) 类打破retainCycle.
+在此感谢@ibireme！！！ 工具中的timer保护类，引用了 [YYWeakProxy](https://github.com/ibireme/YYKit/tree/master/YYKit/Utility) 类打破retainCycle.  (因 `QYCrashProtector` 库中引入的`YYWeakProxy` 会和 `YYKit` 库重名冲突, 特此把项目中引入的 `YYWeakProxy` 更名处理.)
 
 ## 使用方法:
 ###  可以在程序一启动就在 `- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 方法中开启crash保护； 

@@ -1,6 +1,6 @@
 //
 //  QYCrashLog.m
-//   
+//  QYCrashProtector <https://github.com/qiaoyoung/QYCrashProtector>
 //
 //  Created by Joeyoung on 2018/10/9.
 //  Copyright © 2018年 Joeyoung. All rights reserved.

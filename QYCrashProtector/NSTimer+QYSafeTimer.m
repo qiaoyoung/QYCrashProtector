@@ -1,6 +1,6 @@
 //
 //  NSTimer+QYSafeTimer.m
-//   
+//  QYCrashProtector <https://github.com/qiaoyoung/QYCrashProtector>
 //
 //  Created by Joeyoung on 2018/10/8.
 //  Copyright © 2018年 Joeyoung. All rights reserved.
@@ -25,12 +25,12 @@
 }
 
 + (NSTimer *)qy_scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo {
-    YYWeakProxy *proxy = [YYWeakProxy proxyWithTarget:aTarget];
+    QY_YYWeakProxy *proxy = [QY_YYWeakProxy proxyWithTarget:aTarget];
     return [NSTimer qy_scheduledTimerWithTimeInterval:ti target:proxy selector:aSelector userInfo:userInfo repeats:yesOrNo];
 }
 
 + (NSTimer *)qy_timerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo {
-    YYWeakProxy *proxy = [YYWeakProxy proxyWithTarget:aTarget];
+    QY_YYWeakProxy *proxy = [QY_YYWeakProxy proxyWithTarget:aTarget];
     return [NSTimer qy_timerWithTimeInterval:ti target:proxy selector:aSelector userInfo:userInfo repeats:yesOrNo];
 }
 

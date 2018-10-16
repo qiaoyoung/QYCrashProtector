@@ -1,6 +1,6 @@
 //
 //  QYUtils.h
-//  Demo
+//  QYCrashProtector <https://github.com/qiaoyoung/QYCrashProtector>
 //
 //  Created by Joeyoung on 2018/10/9.
 //  Copyright © 2018年 Joeyoung. All rights reserved.
@@ -10,7 +10,7 @@
 #define QYUtils_h
 
 #import "QYMethodSwizzling.h"
-#import "YYWeakProxy.h"
+#import "QY_YYWeakProxy.h"
 #import "QYErrorLog.h"
 
 #endif /* QYUtils_h */

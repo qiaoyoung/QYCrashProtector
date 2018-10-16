@@ -1,6 +1,6 @@
 //
 //  NSObject+QYSafeSelector.m
-//
+//  QYCrashProtector <https://github.com/qiaoyoung/QYCrashProtector>
 //
 //  Created by Joeyoung on 2018/10/8.
 //  Copyright © 2018年 Joeyoung. All rights reserved.
@@ -35,9 +35,14 @@ static Class QY_DynamicClass;
     id target = [self qy_forwardingTargetForSelector:aSelector];
     if (target) return target;
     
+    // filter of system life cycle method.
+    // viewDidLoad, viewWillAppear:, viewDidAppear, viewWillDisappear:, viewDidDisappear:
+    NSString *selStr = NSStringFromSelector(aSelector);
+    if ([selStr hasPrefix:@"viewWill"] || [selStr hasPrefix:@"viewDid"]) return nil;
+    
     // filter of system class
     NSString *classString = NSStringFromClass([self class]);
-    if ([classString hasPrefix:@"_"]) return nil;
+    if ([classString hasPrefix:@"_"] || [classString hasPrefix:@"UI"]) return nil;
    
     if (!target) {
         unrecognized_className = NSStringFromClass([self class]);

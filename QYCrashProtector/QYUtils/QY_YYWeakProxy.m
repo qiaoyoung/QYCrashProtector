@@ -9,10 +9,10 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import "YYWeakProxy.h"
+#import "QY_YYWeakProxy.h"
 
 
-@implementation YYWeakProxy
+@implementation QY_YYWeakProxy
 
 - (instancetype)initWithTarget:(id)target {
     _target = target;
@@ -20,7 +20,7 @@
 }
 
 + (instancetype)proxyWithTarget:(id)target {
-    return [[YYWeakProxy alloc] initWithTarget:target];
+    return [[QY_YYWeakProxy alloc] initWithTarget:target];
 }
 
 - (id)forwardingTargetForSelector:(SEL)selector {
