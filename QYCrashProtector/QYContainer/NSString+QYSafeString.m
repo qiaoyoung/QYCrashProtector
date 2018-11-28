@@ -99,12 +99,14 @@ void method_swizzling__NSString() {
         return str;
     }
 }
-- (void)qy_stringByReplacingCharactersInRange:(NSRange)range withString:(NSString *)replacement {
+- (NSString *)qy_stringByReplacingCharactersInRange:(NSRange)range withString:(NSString *)replacement {
+    NSString *str = nil;
     @try {
-        [self qy_stringByReplacingCharactersInRange:range withString:replacement];
+        str = [self qy_stringByReplacingCharactersInRange:range withString:replacement];
     } @catch (NSException *exception) {
         [QYErrorLog qy_printCrashInfoWithException:exception];
     } @finally {
+        return str;
     }
 }
 
