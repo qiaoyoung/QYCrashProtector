@@ -42,7 +42,7 @@ static Class QY_DynamicClass;
     
     // filter of system class
     NSString *classString = NSStringFromClass([self class]);
-    if ([classString hasPrefix:@"_"] || [classString hasPrefix:@"UI"]) return nil;
+    if ([classString hasPrefix:@"_"] || [classString hasPrefix:@"UI"] || [classString hasPrefix:@"CKSMS"]) return nil;
    
     if (!target) {
         unrecognized_className = NSStringFromClass([self class]);
