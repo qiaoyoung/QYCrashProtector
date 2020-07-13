@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QYCrashProtector'
-  s.version          = '1.0.4'
+  s.version          = '1.0.5'
   s.summary          = 'app crash protector.'
   s.description      = 'Can effectively protect the App is not easy to crash.'
   s.homepage         = 'https://github.com/qiaoyoung/QYCrashProtector'

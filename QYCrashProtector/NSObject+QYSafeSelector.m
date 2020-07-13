@@ -40,12 +40,17 @@ static Class QY_DynamicClass;
     NSString *selStr = NSStringFromSelector(aSelector);
     if ([selStr hasPrefix:@"viewWill"] || [selStr hasPrefix:@"viewDid"]) return nil;
     
+    NSArray *whiteList = @[@"_", @"UI", @"CKSMS", @"WK"];
     // filter of system class
-    NSString *classString = NSStringFromClass([self class]);
-    if ([classString hasPrefix:@"_"] || [classString hasPrefix:@"UI"] || [classString hasPrefix:@"CKSMS"]) return nil;
-   
+    NSString *classString = NSStringFromClass(self.class);
+    for (NSString *classPrefix in whiteList) {
+        if ([classString hasPrefix:classPrefix]) return nil;
+    }
+    // iOS14 keyBoard
+    if ([classString containsString:@"KeyboardInput"]) return nil;
+    
     if (!target) {
-        unrecognized_className = NSStringFromClass([self class]);
+        unrecognized_className = NSStringFromClass(self.class);
         if (!QY_DynamicClass) QY_DynamicClass = objc_allocateClassPair([NSObject class], "QY_DynamicClass", 0);
         class_addMethod(QY_DynamicClass, aSelector, (IMP)qy_dynamicMethodIMP, "V@:");
         target = [QY_DynamicClass new];
