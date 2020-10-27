@@ -35,6 +35,9 @@ static Class QY_DynamicClass;
     id target = [self qy_forwardingTargetForSelector:aSelector];
     if (target) return target;
     
+    BOOL isMethodOverride = [self qy_isMethodOverrideForSelector:@selector(forwardInvocation:)];
+    if (isMethodOverride) return nil;
+    
     // filter of system life cycle method.
     // viewDidLoad, viewWillAppear:, viewDidAppear, viewWillDisappear:, viewDidDisappear:
     NSString *selStr = NSStringFromSelector(aSelector);
@@ -56,6 +59,11 @@ static Class QY_DynamicClass;
         target = [QY_DynamicClass new];
     }
     return target;
+}
+- (BOOL)qy_isMethodOverrideForSelector:(SEL)aSelector {
+    IMP selfIMP = class_getMethodImplementation(self.class, aSelector);
+    IMP superIMP = class_getMethodImplementation(class_getSuperclass(self.class), aSelector);
+    return selfIMP != superIMP;
 }
 
 static force_inline void qy_dynamicMethodIMP(id self, SEL _cmd) {
