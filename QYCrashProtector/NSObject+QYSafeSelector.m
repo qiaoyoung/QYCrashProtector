@@ -43,7 +43,7 @@ static Class QY_DynamicClass;
     NSString *selStr = NSStringFromSelector(aSelector);
     if ([selStr hasPrefix:@"viewWill"] || [selStr hasPrefix:@"viewDid"]) return nil;
     
-    NSArray *whiteList = @[@"_", @"UI", @"CKSMS", @"WK"];
+    NSArray *whiteList = @[@"_", @"UI", @"CKSMS", @"WK", @"GDT", @"SK"];
     // filter of system class
     NSString *classString = NSStringFromClass(self.class);
     for (NSString *classPrefix in whiteList) {
